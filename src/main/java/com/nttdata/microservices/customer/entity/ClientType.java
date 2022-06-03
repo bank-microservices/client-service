@@ -1,4 +1,4 @@
-package com.nttdata.microservices.entity;
+package com.nttdata.microservices.customer.entity;
 
 public enum ClientType {
 

@@ -1,6 +1,6 @@
-package com.nttdata.microservices.exceptionhandler;
+package com.nttdata.microservices.customer.exceptionhandler;
 
-import com.nttdata.microservices.exception.ClientNotFoundException;
+import com.nttdata.microservices.customer.exception.ClientNotFoundException;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.context.support.DefaultMessageSourceResolvable;
 import org.springframework.http.HttpStatus;
