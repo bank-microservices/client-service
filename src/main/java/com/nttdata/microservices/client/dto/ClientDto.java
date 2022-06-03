@@ -11,7 +11,7 @@ import java.util.Date;
 @NoArgsConstructor
 public class ClientDto {
     private String id;
-    @NotBlank(message = "customer.name must be present")
+    @NotBlank(message = "customer.firstNameBusiness must be present")
     private String firstNameBusiness;
     @NotBlank(message = "customer.surnames must be present")
     private String surnames;

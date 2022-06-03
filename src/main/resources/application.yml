@@ -1,10 +1,7 @@
 server:
   port: 8081
 
-spring:
-  config:
-    activate:
-      on-profile: local
+spring:  
   data:
     mongodb:
       host: localhost
