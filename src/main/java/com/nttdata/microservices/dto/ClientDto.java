@@ -12,7 +12,7 @@ import java.util.Date;
 public class ClientDto {
     private String id;
     @NotBlank(message = "customer.name must be present")
-    private String names;
+    private String firstNameBusiness;
     @NotBlank(message = "customer.surnames must be present")
     private String surnames;
     @NotBlank(message = "customer.documentNumber must be present")
@@ -25,8 +25,8 @@ public class ClientDto {
     private Date createAt;
     private Boolean status;
 
-    public ClientDto(String names, String surnames, String documentNumber, String address, String email, String phoneNumber, String documentType, String customerType, Date createAt, Boolean status) {
-        this.names = names;
+    public ClientDto(String firstNameBusiness, String surnames, String documentNumber, String address, String email, String phoneNumber, String documentType, String customerType, Date createAt, Boolean status) {
+        this.firstNameBusiness = firstNameBusiness;
         this.surnames = surnames;
         this.documentNumber = documentNumber;
         this.address = address;

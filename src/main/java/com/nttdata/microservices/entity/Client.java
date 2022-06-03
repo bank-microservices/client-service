@@ -1,17 +1,14 @@
 package com.nttdata.microservices.entity;
 
-import java.util.Date;
-
-import org.springframework.data.annotation.Id;
-import org.springframework.data.mongodb.core.mapping.Document;
-import org.springframework.format.annotation.DateTimeFormat;
-
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import org.springframework.data.annotation.Id;
+import org.springframework.data.mongodb.core.mapping.Document;
+import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.validation.annotation.Validated;
 
-import javax.validation.constraints.NotBlank;
+import java.util.Date;
 
 
 @Data
@@ -23,7 +20,7 @@ public class Client {
 
     @Id
     private String id;
-    private String names;
+    private String firstNameBusiness;
     private String surnames;
     private String documentNumber;
     private String address;
@@ -35,8 +32,8 @@ public class Client {
     private Date createAt;
     private Boolean status;
 
-    public Client(String names, String surnames, String documentNumber, String address, String email, String phoneNumber, DocumentType documentType, ClientType clientType, Date createAt, Boolean status) {
-        this.names = names;
+    public Client(String firstNameBusiness, String surnames, String documentNumber, String address, String email, String phoneNumber, DocumentType documentType, ClientType clientType, Date createAt, Boolean status) {
+        this.firstNameBusiness = firstNameBusiness;
         this.surnames = surnames;
         this.documentNumber = documentNumber;
         this.address = address;

@@ -99,7 +99,7 @@ class ClientControllerTest {
                 .consumeWith(clientDtoEntityExchangeResult -> {
                     var clientDto = clientDtoEntityExchangeResult.getResponseBody();
                     assert clientDto != null;
-                    assertEquals("Juana Maria", clientDto.getNames());
+                    assertEquals("Juana Maria", clientDto.getFirstNameBusiness());
                 });
     }
 
@@ -119,7 +119,7 @@ class ClientControllerTest {
                 .consumeWith(clientDtoEntityExchangeResult -> {
                     var clientDto = clientDtoEntityExchangeResult.getResponseBody();
                     assert clientDto != null;
-                    assertEquals("Luis Jorge", clientDto.getNames());
+                    assertEquals("Luis Jorge", clientDto.getFirstNameBusiness());
                 });
     }
 
