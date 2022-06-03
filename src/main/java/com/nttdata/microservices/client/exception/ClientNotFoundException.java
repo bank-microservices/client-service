@@ -1,4 +1,4 @@
-package com.nttdata.microservices.customer.exception;
+package com.nttdata.microservices.client.exception;
 
 public class ClientNotFoundException extends RuntimeException {
 

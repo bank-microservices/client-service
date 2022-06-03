@@ -1,4 +1,4 @@
-package com.nttdata.microservices.customer.entity;
+package com.nttdata.microservices.client.entity;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;

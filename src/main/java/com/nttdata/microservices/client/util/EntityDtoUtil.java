@@ -1,9 +1,9 @@
-package com.nttdata.microservices.customer.util;
+package com.nttdata.microservices.client.util;
 
-import com.nttdata.microservices.customer.dto.ClientDto;
-import com.nttdata.microservices.customer.entity.Client;
-import com.nttdata.microservices.customer.entity.ClientType;
-import com.nttdata.microservices.customer.entity.DocumentType;
+import com.nttdata.microservices.client.dto.ClientDto;
+import com.nttdata.microservices.client.entity.Client;
+import com.nttdata.microservices.client.entity.ClientType;
+import com.nttdata.microservices.client.entity.DocumentType;
 import org.springframework.beans.BeanUtils;
 
 public class EntityDtoUtil {

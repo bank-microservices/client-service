@@ -1,7 +1,7 @@
-package com.nttdata.microservices.customer.controller;
+package com.nttdata.microservices.client.controller;
 
-import com.nttdata.microservices.customer.dto.ClientDto;
-import com.nttdata.microservices.customer.service.ClientService;
+import com.nttdata.microservices.client.dto.ClientDto;
+import com.nttdata.microservices.client.service.ClientService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;

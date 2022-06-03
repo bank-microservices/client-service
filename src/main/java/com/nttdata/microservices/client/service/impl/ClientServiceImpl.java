@@ -1,9 +1,9 @@
-package com.nttdata.microservices.customer.service.impl;
+package com.nttdata.microservices.client.service.impl;
 
-import com.nttdata.microservices.customer.dto.ClientDto;
-import com.nttdata.microservices.customer.service.ClientService;
-import com.nttdata.microservices.customer.util.EntityDtoUtil;
-import com.nttdata.microservices.customer.repository.ClientRepository;
+import com.nttdata.microservices.client.dto.ClientDto;
+import com.nttdata.microservices.client.service.ClientService;
+import com.nttdata.microservices.client.util.EntityDtoUtil;
+import com.nttdata.microservices.client.repository.ClientRepository;
 import org.springframework.stereotype.Service;
 import reactor.core.publisher.Flux;
 import reactor.core.publisher.Mono;

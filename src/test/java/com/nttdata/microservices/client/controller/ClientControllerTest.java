@@ -1,10 +1,10 @@
-package com.nttdata.microservices.customer.controller;
+package com.nttdata.microservices.client.controller;
 
-import com.nttdata.microservices.customer.dto.ClientDto;
-import com.nttdata.microservices.customer.entity.ClientType;
-import com.nttdata.microservices.customer.entity.Client;
-import com.nttdata.microservices.customer.entity.DocumentType;
-import com.nttdata.microservices.customer.repository.ClientRepository;
+import com.nttdata.microservices.client.dto.ClientDto;
+import com.nttdata.microservices.client.entity.ClientType;
+import com.nttdata.microservices.client.entity.Client;
+import com.nttdata.microservices.client.entity.DocumentType;
+import com.nttdata.microservices.client.repository.ClientRepository;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;

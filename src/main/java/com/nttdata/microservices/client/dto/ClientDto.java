@@ -1,4 +1,4 @@
-package com.nttdata.microservices.customer.dto;
+package com.nttdata.microservices.client.dto;
 
 import lombok.Data;
 import lombok.NoArgsConstructor;

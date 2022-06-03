@@ -1,4 +1,4 @@
-package com.nttdata.microservices.customer;
+package com.nttdata.microservices.client;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
