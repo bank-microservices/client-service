@@ -22,7 +22,6 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 @SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
 @ActiveProfiles("test")
 @AutoConfigureWebTestClient
-@TestPropertySource(properties = "spring.mongodb.embedded.version=3.4.5")
 class ClientControllerTest {
 
     @Autowired
@@ -36,7 +35,7 @@ class ClientControllerTest {
     @BeforeEach
     void setUp() {
         List<Client> clients = List.of(new Client("001", "Luis Gustavo", "Cueva Basso", "00000015", "Jr. Eucaliptos 493", "lucuba06@gmail.com", "994451236", DocumentType.DNI, ClientType.PERSONAL, new Date(), true),
-                new Client("Carlos", "Zarate Gomes", "00000015", "czarate@gmail.com", "Av. Brasil 1345", "994451237", DocumentType.RUC, ClientType.BUSINESS, new Date(), false));
+                new Client("Carlos", "Zarate Gomes", "00000016", "czarate@gmail.com", "Av. Brasil 1345", "994451237", DocumentType.RUC, ClientType.BUSINESS, new Date(), false));
         clientRepository
                 .deleteAll()
                 .thenMany(clientRepository.saveAll(clients))
@@ -62,6 +61,22 @@ class ClientControllerTest {
         webTestClient
                 .get()
                 .uri(CLIENT_URL + "/{id}", id)
+                .exchange()
+                .expectStatus()
+                .is2xxSuccessful()
+                .expectBody(ClientDto.class)
+                .consumeWith(clientDtoEntityExchangeResult -> {
+                    var clientDto = clientDtoEntityExchangeResult.getResponseBody();
+                    assert clientDto != null;
+                });
+    }
+
+    @Test
+    void getClientByDocumentNumber() {
+        var number = "00000015";
+        webTestClient
+                .get()
+                .uri(CLIENT_URL + "/documentNumber/{number}", number)
                 .exchange()
                 .expectStatus()
                 .is2xxSuccessful()
