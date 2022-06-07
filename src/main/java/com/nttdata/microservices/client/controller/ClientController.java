@@ -1,6 +1,6 @@
 package com.nttdata.microservices.client.controller;
 
-import com.nttdata.microservices.client.dto.ClientDto;
+import com.nttdata.microservices.client.service.dto.ClientDto;
 import com.nttdata.microservices.client.service.ClientService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.HttpStatus;

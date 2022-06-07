@@ -4,10 +4,10 @@ import java.util.Date;
 
 import org.springframework.stereotype.Service;
 
-import com.nttdata.microservices.client.dto.ClientDto;
 import com.nttdata.microservices.client.repository.ClientRepository;
 import com.nttdata.microservices.client.service.ClientService;
-import com.nttdata.microservices.client.util.EntityDtoUtil;
+import com.nttdata.microservices.client.service.dto.ClientDto;
+import com.nttdata.microservices.client.service.mapper.ClientMapper;
 
 import reactor.core.publisher.Flux;
 import reactor.core.publisher.Mono;
@@ -16,9 +16,11 @@ import reactor.core.publisher.Mono;
 public class ClientServiceImpl implements ClientService {
 
     private final ClientRepository clientRepository;
+    private final ClientMapper clientMapper;
 
-    public ClientServiceImpl(ClientRepository clientRepository) {
+    public ClientServiceImpl(ClientRepository clientRepository, ClientMapper clientMapper) {
         this.clientRepository = clientRepository;
+        this.clientMapper = clientMapper;
     }
 
     /**
@@ -29,7 +31,7 @@ public class ClientServiceImpl implements ClientService {
     @Override
     public Flux<ClientDto> findAll() {
         return clientRepository.findAll()
-                .map(EntityDtoUtil::toDto);
+                .map(clientMapper::toDto);
     }
 
     /**
@@ -41,7 +43,7 @@ public class ClientServiceImpl implements ClientService {
     @Override
     public Mono<ClientDto> findById(String id) {
         return clientRepository.findById(id)
-                .map(EntityDtoUtil::toDto);
+                .map(clientMapper::toDto);
     }
 
     /**
@@ -55,13 +57,13 @@ public class ClientServiceImpl implements ClientService {
     @Override
     public Mono<ClientDto> create(ClientDto customerDto) {
         return Mono.just(customerDto)
-                .map(EntityDtoUtil::toEntity)
+                .map(clientMapper::toEntity)
                 .map(dto -> {
                     dto.setCreateAt(new Date());
                     return dto;
                 })
                 .flatMap(this.clientRepository::insert)
-                .map(EntityDtoUtil::toDto);
+                .map(clientMapper::toDto);
     }
 
     /**
@@ -77,10 +79,10 @@ public class ClientServiceImpl implements ClientService {
     public Mono<ClientDto> update(String id, ClientDto customerDto) {
         return clientRepository.findById(id)
                 .flatMap(p -> Mono.just(customerDto)
-                        .map(EntityDtoUtil::toEntity)
+                        .map(clientMapper::toEntity)
                         .doOnNext(e -> e.setId(id)))
                 .flatMap(this.clientRepository::save)
-                .map(EntityDtoUtil::toDto);
+                .map(clientMapper::toDto);
     }
 
     /**
@@ -107,7 +109,7 @@ public class ClientServiceImpl implements ClientService {
     @Override
     public Mono<ClientDto> findByDocumentNumber(String documentNumber) {
         return clientRepository.findByDocumentNumber(documentNumber)
-                .map(EntityDtoUtil::toDto);
+                .map(clientMapper::toDto);
     }
 
 }

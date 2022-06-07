@@ -1,6 +1,6 @@
 package com.nttdata.microservices.client.controller;
 
-import com.nttdata.microservices.client.dto.ClientDto;
+import com.nttdata.microservices.client.service.dto.ClientDto;
 import com.nttdata.microservices.client.entity.ClientType;
 import com.nttdata.microservices.client.entity.Client;
 import com.nttdata.microservices.client.entity.DocumentType;
@@ -11,7 +11,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.web.reactive.AutoConfigureWebTestClient;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.ActiveProfiles;
-import org.springframework.test.context.TestPropertySource;
 import org.springframework.test.web.reactive.server.WebTestClient;
 
 import java.util.Date;

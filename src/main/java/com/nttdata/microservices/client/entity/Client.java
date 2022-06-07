@@ -14,7 +14,7 @@ import java.util.Date;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-@Document(collection = "customer")
+@Document(collection = "client")
 @Validated
 public class Client {
 

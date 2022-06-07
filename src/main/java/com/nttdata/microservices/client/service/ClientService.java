@@ -1,6 +1,6 @@
 package com.nttdata.microservices.client.service;
 
-import com.nttdata.microservices.client.dto.ClientDto;
+import com.nttdata.microservices.client.service.dto.ClientDto;
 import reactor.core.publisher.Flux;
 import reactor.core.publisher.Mono;
 

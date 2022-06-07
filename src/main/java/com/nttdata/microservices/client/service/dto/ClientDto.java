@@ -1,4 +1,4 @@
-package com.nttdata.microservices.client.dto;
+package com.nttdata.microservices.client.service.dto;
 
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -21,11 +21,11 @@ public class ClientDto {
     private String email;
     private String phoneNumber;
     private String documentType;
-    private String customerType;
+    private String clientType;
     private Date createAt;
     private Boolean status;
 
-    public ClientDto(String firstNameBusiness, String surnames, String documentNumber, String address, String email, String phoneNumber, String documentType, String customerType, Date createAt, Boolean status) {
+    public ClientDto(String firstNameBusiness, String surnames, String documentNumber, String address, String email, String phoneNumber, String documentType, String clientType, Date createAt, Boolean status) {
         this.firstNameBusiness = firstNameBusiness;
         this.surnames = surnames;
         this.documentNumber = documentNumber;
@@ -33,7 +33,7 @@ public class ClientDto {
         this.email = email;
         this.phoneNumber = phoneNumber;
         this.documentType = documentType;
-        this.customerType = customerType;
+        this.clientType = clientType;
         this.createAt = createAt;
         this.status = status;
     }
