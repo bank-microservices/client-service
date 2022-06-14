@@ -29,7 +29,7 @@ class ClientControllerTest {
     @Autowired
     private ClientRepository clientRepository;
 
-    static String CLIENT_URL = "/api/client";
+    static String CLIENT_URL = "/api/v1/client";
 
     @BeforeEach
     void setUp() {
