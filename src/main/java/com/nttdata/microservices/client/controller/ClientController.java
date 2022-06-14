@@ -13,7 +13,7 @@ import javax.validation.Valid;
 
 @Slf4j
 @RestController
-@RequestMapping("/api/client")
+@RequestMapping("/api/v1/client")
 public class ClientController {
 
     private final ClientService clientService;
