@@ -7,3 +7,9 @@ spring:
       host: localhost
       port: 27017
       database: clientdb
+  messages:
+    basename: i18n/messages
+    fallback-to-system-locale: true
+    use-code-as-default-message: true
+  jackson:
+    default-property-inclusion: non_null

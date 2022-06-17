@@ -6,16 +6,16 @@ import reactor.core.publisher.Mono;
 
 public interface ClientService {
 
-    Flux<ClientDto> findAll();
+  Flux<ClientDto> findAll();
 
-    Mono<ClientDto> findById(String id);
+  Mono<ClientDto> findById(String id);
 
-    Mono<ClientDto> findByDocumentNumber(String documentNumber);
+  Mono<ClientDto> findByDocumentNumber(String documentNumber);
 
-    Mono<ClientDto> create(ClientDto customerDto);
+  Mono<ClientDto> create(ClientDto customerDto);
 
-    Mono<ClientDto> update(String id, ClientDto customerDto);
+  Mono<ClientDto> update(String id, ClientDto customerDto);
 
-    Mono<Void> delete(String id);
+  Mono<Void> delete(String id);
 
 }
