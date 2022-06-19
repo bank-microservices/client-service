@@ -1,6 +1,11 @@
 package com.nttdata.microservices.client.service.dto;
 
+import com.nttdata.microservices.client.entity.ClientProfile;
+import com.nttdata.microservices.client.entity.ClientType;
+import com.nttdata.microservices.client.entity.DocumentType;
+import com.nttdata.microservices.client.util.validation.ValueOfEnum;
 import java.util.Date;
+import javax.validation.constraints.Email;
 import javax.validation.constraints.NotBlank;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -9,18 +14,36 @@ import lombok.NoArgsConstructor;
 @Data
 @NoArgsConstructor
 public class ClientDto {
+
   private String id;
-  @NotBlank(message = "customer.firstNameBusiness must be present")
+  @NotBlank(message = "customer.firstNameBusiness  is required")
   private String firstNameBusiness;
-  @NotBlank(message = "customer.surnames must be present")
+
+  @NotBlank(message = "customer.surnames  is required")
   private String surnames;
-  @NotBlank(message = "customer.documentNumber must be present")
+
+  @NotBlank(message = "customer.documentNumber  is required")
   private String documentNumber;
+
   private String address;
+
+  @Email
   private String email;
+
   private String phoneNumber;
+
+  @NotBlank(message = "documentType is required")
+  @ValueOfEnum(enumClass = DocumentType.class, message = "documentType is invalid value")
   private String documentType;
+
+  @NotBlank(message = "clientProfile is required")
+  @ValueOfEnum(enumClass = ClientProfile.class, message = "clientProfile is invalid value")
+  private String clientProfile;
+
+  @NotBlank(message = "clientType is required")
+  @ValueOfEnum(enumClass = ClientType.class, message = "clientType is invalid value")
   private String clientType;
+
   private Date createAt;
   private Boolean status;
 

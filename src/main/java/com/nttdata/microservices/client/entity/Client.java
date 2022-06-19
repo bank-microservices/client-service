@@ -27,6 +27,8 @@ public class Client {
   private String phoneNumber;
   private DocumentType documentType;
   private ClientType clientType;
+  private ClientProfile clientProfile;
+
   @DateTimeFormat(pattern = "yyyy-MM-dd")
   private Date createAt;
   private Boolean status;

@@ -2,6 +2,9 @@ package com.nttdata.microservices.client.service.impl;
 
 import static com.nttdata.microservices.client.util.MessageUtils.getMsg;
 
+import com.nttdata.microservices.client.entity.ClientProfile;
+import com.nttdata.microservices.client.entity.ClientType;
+import com.nttdata.microservices.client.entity.DocumentType;
 import com.nttdata.microservices.client.exception.BadRequestException;
 import com.nttdata.microservices.client.repository.ClientRepository;
 import com.nttdata.microservices.client.service.ClientService;
@@ -73,6 +76,8 @@ public class ClientServiceImpl implements ClientService {
   public Mono<ClientDto> create(ClientDto clientDto) {
     return Mono.just(clientDto)
         .flatMap(this::existClient)
+        .flatMap(this::validDocumentType)
+        .flatMap(this::validClientProfile)
         .map(clientMapper::toEntity)
         .map(dto -> {
           dto.setCreateAt(new Date());
@@ -82,11 +87,41 @@ public class ClientServiceImpl implements ClientService {
         .map(clientMapper::toDto);
   }
 
-  private Mono<ClientDto> existClient(ClientDto clientDto) {
+  private Mono<ClientDto> existClient(final ClientDto clientDto) {
     return findByDocumentNumber(clientDto.getDocumentNumber())
         .flatMap(client -> Mono.error(new BadRequestException(getMsg("client.document.already"))))
         .thenReturn(clientDto);
   }
+
+  private Mono<ClientDto> validDocumentType(final ClientDto clientDto) {
+    final DocumentType documentType = DocumentType.valueOf(clientDto.getDocumentType());
+    final ClientType clientType = ClientType.valueOf(clientDto.getClientType());
+    if (ClientType.PERSONAL == clientType && !documentType.in(DocumentType.DNI, DocumentType.CE)) {
+      return Mono.error(new BadRequestException(getMsg("client.document.type.invalid",
+          documentType, clientType)));
+    } else if (ClientType.BUSINESS == clientType && !documentType.in(DocumentType.RUC)) {
+      return Mono.error(new BadRequestException(getMsg("client.document.type.invalid",
+          documentType, clientType)));
+    }
+    return Mono.just(clientDto);
+
+  }
+
+  private Mono<ClientDto> validClientProfile(final ClientDto clientDto) {
+    final ClientProfile clientProfile = ClientProfile.valueOf(clientDto.getClientProfile());
+    final ClientType clientType = ClientType.valueOf(clientDto.getClientType());
+    if (ClientType.PERSONAL == clientType
+        && !clientProfile.in(ClientProfile.VIP, ClientProfile.REGULAR)) {
+      return Mono.error(new BadRequestException(getMsg("client.profile.invalid",
+          clientProfile, clientType)));
+    } else if (ClientType.BUSINESS == clientType
+        && !clientProfile.in(ClientProfile.PYME, ClientProfile.REGULAR)) {
+      return Mono.error(new BadRequestException(getMsg("client.profile.invalid",
+          clientProfile, clientType)));
+    }
+    return Mono.just(clientDto);
+  }
+
 
   /**
    * Find a client by id, then map the clientDto to an entity, then set the id of
@@ -101,6 +136,8 @@ public class ClientServiceImpl implements ClientService {
   public Mono<ClientDto> update(String id, ClientDto customerDto) {
     return clientRepository.findById(id)
         .flatMap(p -> Mono.just(customerDto)
+            .flatMap(this::validDocumentType)
+            .flatMap(this::validClientProfile)
             .map(clientMapper::toEntity)
             .doOnNext(e -> e.setId(id)))
         .flatMap(this.clientRepository::save)

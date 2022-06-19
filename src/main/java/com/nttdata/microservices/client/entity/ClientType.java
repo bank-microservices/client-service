@@ -4,5 +4,4 @@ public enum ClientType {
 
   PERSONAL, BUSINESS
 
-
 }
