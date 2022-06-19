@@ -33,18 +33,4 @@ public class Client {
   private Date createAt;
   private Boolean status;
 
-  public Client(String firstNameBusiness, String surnames, String documentNumber, String address,
-                String email, String phoneNumber, DocumentType documentType, ClientType clientType,
-                Date createAt, Boolean status) {
-    this.firstNameBusiness = firstNameBusiness;
-    this.surnames = surnames;
-    this.documentNumber = documentNumber;
-    this.address = address;
-    this.email = email;
-    this.phoneNumber = phoneNumber;
-    this.documentType = documentType;
-    this.clientType = clientType;
-    this.createAt = createAt;
-    this.status = status;
-  }
 }

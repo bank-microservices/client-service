@@ -7,11 +7,15 @@ import com.nttdata.microservices.client.util.validation.ValueOfEnum;
 import java.util.Date;
 import javax.validation.constraints.Email;
 import javax.validation.constraints.NotBlank;
+import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
 
 @Data
+@Builder
+@AllArgsConstructor
 @NoArgsConstructor
 public class ClientDto {
 
