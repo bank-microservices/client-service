@@ -43,7 +43,7 @@ public class ClientController {
         .defaultIfEmpty(ResponseEntity.notFound().build());
   }
 
-  @GetMapping("/documentNumber/{number}")
+  @GetMapping("/document-number/{number}")
   public Mono<ResponseEntity<ClientDto>> findNumber(@PathVariable String number) {
     log.info("find Client by documentNumber: {}", number);
     return clientService.findByDocumentNumber(number)

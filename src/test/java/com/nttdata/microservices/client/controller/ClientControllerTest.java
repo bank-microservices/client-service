@@ -92,7 +92,7 @@ class ClientControllerTest {
     var number = "00000015";
     webTestClient
         .get()
-        .uri(CLIENT_URL + "/documentNumber/{number}", number)
+        .uri(CLIENT_URL + "/document-number/{number}", number)
         .exchange()
         .expectStatus()
         .is2xxSuccessful()
