@@ -1,7 +1,25 @@
-spring:  
+spring:
   application:
     name: client-service
   cloud:
     config:
       uri:
-      - http://localhost:8888  
+        - http://localhost:8888
+
+management:
+  endpoints:
+    enabled-by-default: false
+    web:
+      exposure:
+        include: health, info, refresh
+  endpoint:
+    health:
+      enabled: true
+    info:
+      enabled: true
+    refresh:
+      enabled: true
+    restart:
+      enabled: false
+    env:
+      enabled: false
