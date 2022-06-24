@@ -9,7 +9,7 @@
     </parent>
     <groupId>com.nttdata.microservices</groupId>
     <artifactId>client-service</artifactId>
-    <version>1.0.1</version>
+    <version>1.0.0</version>
     <name>client-service</name>
     <description>Project for Client Service Microservices</description>
     <properties>
@@ -195,7 +195,7 @@
                     <container>
                         <entrypoint>
                             <shell>sh</shell>
-                            <arg>/entrypoint.sh</arg>
+                            <arg>entrypoint.sh</arg>
                         </entrypoint>
                         <environment>
                             <CONFIG_SERVER_URI>http://localhost:8888</CONFIG_SERVER_URI>
