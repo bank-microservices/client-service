@@ -195,7 +195,7 @@
                     <container>
                         <entrypoint>
                             <shell>sh</shell>
-                            <arg>/entrypoint.sh</arg>
+                            <arg>entrypoint.sh</arg>
                         </entrypoint>
                         <environment>
                             <CONFIG_SERVER_URI>http://localhost:8888</CONFIG_SERVER_URI>
