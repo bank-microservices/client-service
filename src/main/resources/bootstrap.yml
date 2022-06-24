@@ -5,21 +5,3 @@ spring:
     config:
       uri:
         - ${CONFIG_SERVER_URI:http://localhost:8888}
-
-management:
-  endpoints:
-    enabled-by-default: false
-    web:
-      exposure:
-        include: health, info, refresh
-  endpoint:
-    health:
-      enabled: true
-    info:
-      enabled: true
-    refresh:
-      enabled: true
-    restart:
-      enabled: false
-    env:
-      enabled: false
