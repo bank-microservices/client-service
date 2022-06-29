@@ -2,9 +2,6 @@
 
 name: Spring-Boot Reactive CI with Maven - Develop
 
-env:
-  AZURE_WEBAPP_NAME: demo-app-nttd
-
 on:
   push:
     branches: [develop]
@@ -43,7 +40,7 @@ jobs:
       - name: SonarCloud Scan
         run: mvn -B -ntp verify -Psonar
         env:
-          GITHUB_TOKEN: ${{ secrets.REPO_GITHUB_TOKEN }}
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           SONAR_TOKEN: ${{ secrets.SONARQUBE_TOKEN }}
           SONAR_HOST_URL: ${{ secrets.SONARQUBE_HOST }}
 
